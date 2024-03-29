@@ -85,7 +85,7 @@ func (app *api) companyHandler(w http.ResponseWriter, r *http.Request) {
 
 	v := r.URL.Path
 	if v == "/" {
-		http.Redirect(w, r, "https://docs.minhareceita.org", http.StatusFound)
+		app.messageResponse(w, http.StatusInternalServerError, "Nada disponivel na raiz /, digite o cnpj depos da /")
 		return
 	}
 	if !cnpj.IsValid(v) {
